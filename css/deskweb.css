@@ -8,3 +8,8 @@ label.projection {
 input.projection {
   background-color: green;
   color: white; }
+
+.footer {
+  border-top: 1px solid #E5E5E5;
+  margin-top: 45px;
+  padding: 35px 0 36px; }
