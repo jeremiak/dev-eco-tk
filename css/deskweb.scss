@@ -1,0 +1,21 @@
+$greenColor:green;
+
+#inmobi-logo {
+    width:432px;
+    margin:0 auto;
+    padding:0;
+}
+
+.input-prepend .no-bg {
+    background:none;
+    border:none;
+}
+
+label.projection {
+    color: $greenColor;
+}
+
+input.projection {
+    background-color:$greenColor;
+    color:white;
+}
