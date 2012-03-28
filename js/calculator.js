@@ -89,5 +89,7 @@ $(document).ready(function() {
         );
         // to the brand link, bind a function that scrolls to the top of the page
         $('.brand').bind('click', function() {
+            $('html, body').animate({scrollTop:0}, 'fast');
+            return false; // required to prevent default scroll
             });
 });
