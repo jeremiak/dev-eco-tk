@@ -8,341 +8,375 @@
         <script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="js/calculator.js"></script>
 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="#">Economic Toolkit for Developers by InMobi</a>
+                    <a class="brand" href="#">Economic Toolkit for Developers</a>
+                    <div class="pull-right">
+                        <a href="http://www.inmobi.com"><img src="img/inmobi_white.png" width="120px" /></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <form class="form-horizontal" id="toolkit" name="toolkit">
-                <fieldset>
-                    <legend>Monthly Ad Revenue Projection</legend>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impressions">Monthly Unique Users</label>
-                        <div class="controls">
-                            <input type="number" min="0" step="1" value="1000000" id="month-uniques" name="month-uniques" class="user-data" />
-                            <p class="help-block">The number of unique users that use your app in a single month.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impressions">Average Session Length (min)</label>
-                        <div class="controls">
-                            <input type="number" min="0" step="1" value="5" id="avg-session-length" name="avg-session-length" class="user-data" />
-                            <p class="help-block">The average length of each usage session of your app. This can be improved by increasing user engagement.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impressions">Sessions Per Day</label>
-                        <div class="controls">
-                            <input type="number" min="0" step="1" value="2" id="daily-sessions" name="daily-sessions" class="user-data" />
-                            <p class="help-block">The number of times a user opens your app in a single day.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impressions">Ad Impressions Per Month</label>
-                        <div class="controls">
-                            <input type="text" id="ad-impressions" name="ad-impressions" disabled/>
-                            <p class="help-block">The percentage of users clicking on ads. This number can be improved through interstitial ads or clever placements that users are sure to click on.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="fill-rate">Fill Rate</label>
-                        <div class="controls">
-                            <div class="input-append">
-                                <input type="range" min="0" max="100" step=".1" value="75" id="fill-rate" name="fill-rate" class="user-data" />
-                                <span id="fill-rate-range-value" class="add-on">75%</span>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3">
+                    <ol>
+                        <li>Monthly Ad Revenue Projection
+                            <ul>
+                                <li>Projection</li>
+                                <li>eCPM</li>
+                            </ul>
+                        </li>
+                        <li>12 Month Ad Revenue Projection
+                            <ul>
+                                <li>Projection</li>
+                            </ul>
+                        </li>
+                        <li>How Much to Spend on Ads
+                            <ul>
+                                <li>Apps Activated in a Year</li>
+                            </ul>
+                        </li>
+                        <li>Advertising Impact on Business</li>
+                        <li>Total New Monthly Revenue (after 12 Months)</li>
+                    </ol>
+                </div>
+                <div class="span9">
+                    <form class="form-horizontal" id="toolkit" name="toolkit">
+                        <fieldset>
+                            <legend>Monthly Ad Revenue Projection</legend>
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impressions">Monthly Unique Users</label>
+                                <div class="controls">
+                                    <input type="number" min="0" step="1" value="1000000" id="month-uniques" name="month-uniques" class="user-data" />
+                                    <p class="help-block">The number of unique users that use your app in a single month.</p>
+                                </div>
                             </div>
-                            <p class="help-block">The percentage of ad impressions filled with ads. This number can be improved by working with multiple ad networks or building a good relationship with one network.</p>
-                        </div>    
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label" for="ads-displayed">Ads Displayed</label>
-                        <div class="controls">
-                            <input type="text" id="ads-displayed" name="ads-displayed" class="disabled" disabled />
-                            <p class="help-block">The number of ads actually displayed.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label" for="ctr">CTR (Click through rate)</label>
-                        <div class="controls">    
-                            <div class="input-append">
-                                <input type="number" min="0" max="100" step=".1" value="3" id="ctr" name="ctr" class="user-data" />
-                                <span class="add-on">%</span>
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impressions">Average Session Length (min)</label>
+                                <div class="controls">
+                                    <input type="number" min="0" step="1" value="5" id="avg-session-length" name="avg-session-length" class="user-data" />
+                                    <p class="help-block">The average length of each usage session of your app. This can be improved by increasing user engagement.</p>
+                                </div>
                             </div>
-                            <p class="help-block">The percentage of users clicking on ads. This number can be improved through interstitial ads or clever placements that users are sure to click on.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label" for="total-clicks">Total Clicks</label>
-                        <div class="controls">    
-                            <input type="text" id="total-clicks" name="total-clicks" class="disabled" disabled />
-                            <p class="help-block">The total number of clicks.</p>
-                        </div>
-                    </div>    
-                    <div class="control-group">    
-                        <label class="control-label" for="cpc">CPC (Cost per click)</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="number" min="0" step=".01" value="0.10" id="projection-cpc" name="projection-cpc" class="user-data" />
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impressions">Sessions Per Day</label>
+                                <div class="controls">
+                                    <input type="number" min="0" step="1" value="2" id="daily-sessions" name="daily-sessions" class="user-data" />
+                                    <p class="help-block">The number of times a user opens your app in a single day.</p>
+                                </div>
                             </div>
-                            <p class="help-block">The amount paid by advertisers for a click. This number can be improved by working with the ad network to understand what is working well for advertisers.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label projection" for="month-projected-rev">Monthly Ad Revenue Projection</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>    
-                                <input type="text" class="projection" id="month-projected-rev" name="month-projected-rev" disabled />
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impressions">Ad Impressions Per Month</label>
+                                <div class="controls">
+                                    <input type="text" id="ad-impressions" name="ad-impressions" disabled/>
+                                    <p class="help-block">The percentage of users clicking on ads. This number can be improved through interstitial ads or clever placements that users are sure to click on.</p>
+                                </div>
                             </div>
-                            <p class="help-block">Amount of cash earned in one month.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label projection" for="ecpm">eCPM</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" class="projection" id="ecpm" name="ecpm" disabled />
+                            <div class="control-group">
+                                <label class="control-label" for="fill-rate">Fill Rate</label>
+                                <div class="controls">
+                                    <div class="input-append">
+                                        <input type="range" min="0" max="100" step=".1" value="75" id="fill-rate" name="fill-rate" class="user-data" />
+                                        <span id="fill-rate-range-value" class="add-on">75%</span>
+                                    </div>
+                                    <p class="help-block">The percentage of ad impressions filled with ads. This number can be improved by working with multiple ad networks or building a good relationship with one network.</p>
+                                </div>    
                             </div>
-                            <p class="help-block">Average revenue earned for every 1,000 ads displayed.</p>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>12 Month Ad Revenue Projection</legend>
-                    <div class="control-group">
-                        <label class="control-label projection" for="monthly-earnings">Monthly Earnings</label>
-                        <div class="controls">
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" class="projection" id="monthly-earnings" name="monthly-earnings" class="disabled" disabled />
+                            <div class="control-group">    
+                                <label class="control-label" for="ads-displayed">Ads Displayed</label>
+                                <div class="controls">
+                                    <input type="text" id="ads-displayed" name="ads-displayed" class="disabled" disabled />
+                                    <p class="help-block">The number of ads actually displayed.</p>
+                                </div>
                             </div>
-                            <p class="help-block">Starts with the Monthly Ad Revenue Projection per month from above.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="lowest-month">Approx Lowest Month (50%)</label>
-                        <div class="controls">
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" id="lowest-month" name="lowest-month" class="disabled" disabled />
+                            <div class="control-group">    
+                                <label class="control-label" for="ctr">CTR (Click through rate)</label>
+                                <div class="controls">    
+                                    <div class="input-append">
+                                        <input type="number" min="0" max="100" step=".1" value="3" id="ctr" name="ctr" class="user-data" />
+                                        <span class="add-on">%</span>
+                                    </div>
+                                    <p class="help-block">The percentage of users clicking on ads. This number can be improved through interstitial ads or clever placements that users are sure to click on.</p>
+                                </div>
                             </div>
-                            <p class="help-block">This sets the estimated minimum in monthly revenue.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="highest-month">Approx Highest Month (150%)</label>
-                        <div class="controls">
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" id="highest-month" name="highest-month" class="disabled" disabled />
+                            <div class="control-group">    
+                                <label class="control-label" for="total-clicks">Total Clicks</label>
+                                <div class="controls">    
+                                    <input type="text" id="total-clicks" name="total-clicks" class="disabled" disabled />
+                                    <p class="help-block">The total number of clicks.</p>
+                                </div>
+                            </div>    
+                            <div class="control-group">    
+                                <label class="control-label" for="cpc">CPC (Cost per click)</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="number" min="0" step=".01" value="0.10" id="projection-cpc" name="projection-cpc" class="user-data cpc" />
+                                    </div>
+                                    <p class="help-block">The amount paid by advertisers for a click. This number can be improved by working with the ad network to understand what is working well for advertisers.</p>
+                                </div>
                             </div>
-                            <p class="help-block">This sets the estimated maximum in monthly revenue.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="monthly-earnings">Monthly Average</label>
-                        <div class="controls">
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" id="monthly-average" name="monthly-average" class="disabled" disabled />
+                            <div class="control-group">    
+                                <label class="control-label projection" for="month-projected-rev">Monthly Ad Revenue Projection</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>    
+                                        <input type="text" class="projection" id="month-projected-rev" name="month-projected-rev" disabled />
+                                    </div>
+                                    <p class="help-block">Amount of cash earned in one month.</p>
+                                </div>
                             </div>
-                            <p class="help-block">This is the average of all three data points.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label projection" for="monthly-earnings">12 Month Projected Revenue</label>
-                        <div class="controls">
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" id="projection" name="monthly-average" class="projection disabled" disabled />
+                            <div class="control-group">    
+                                <label class="control-label projection" for="ecpm">eCPM</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" class="projection" id="ecpm" name="ecpm" disabled />
+                                    </div>
+                                    <p class="help-block">Average revenue earned for every 1,000 ads displayed.</p>
+                                </div>
                             </div>
-                            <p class="help-block">Estimated earnings from advertising over 12 months.</p>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>How Much to Spend on Ads?</legend>
-                    <div class="control-group">
-                        <label class="control-label projection" for="year-projection">12 Month Projected Revenue</label>
-                        <div class="controls">
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" class="projection" id="year-projection" name="monthly-average projection" class="disabled" disabled />
+                        </fieldset>
+                        <fieldset>
+                            <legend>12 Month Ad Revenue Projection</legend>
+                            <div class="control-group">
+                                <label class="control-label projection" for="monthly-earnings">Monthly Earnings</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" class="projection" id="monthly-earnings" name="monthly-earnings" class="disabled" disabled />
+                                    </div>
+                                    <p class="help-block">Starts with the Monthly Ad Revenue Projection per month from above.</p>
+                                </div>
                             </div>
-                            <p class="help-block">Starts with the 12 Month Projected Earnings number from above.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="fill-rate">Portion Spent</label>
-                        <div class="controls">
-                            <div class="input-append">
-                                <input type="range" min="0" max="100" step=".1" value="75" id="portion-spent" name="portion-spent" class="user-data" />
-                                <span id="portion-spent-range-value" class="add-on">75%</span>
+                            <div class="control-group">
+                                <label class="control-label" for="lowest-month">Approx Lowest Month (50%)</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="lowest-month" name="lowest-month" class="disabled" disabled />
+                                    </div>
+                                    <p class="help-block">This sets the estimated minimum in monthly revenue.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="dollars-spent">Dollars Spent</label>
-                        <div class="controls">
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" id="dollars-spent" name="dollars-spent" class="input-small" disabled />
-                                <p class="help-block"></p>
+                            <div class="control-group">
+                                <label class="control-label" for="highest-month">Approx Highest Month (150%)</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="highest-month" name="highest-month" class="disabled" disabled />
+                                    </div>
+                                    <p class="help-block">This sets the estimated maximum in monthly revenue.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label" for="cpc">CPC (Cost per click)</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" min="0" step=".01" value="0.10" id="ads-cpc" name="ads-cpc" class="user-data disabled" disabled />
+                            <div class="control-group">
+                                <label class="control-label" for="monthly-earnings">Monthly Average</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="monthly-average" name="monthly-average" class="disabled" disabled />
+                                    </div>
+                                    <p class="help-block">This is the average of all three data points.</p>
+                                </div>
                             </div>
-                            <p class="help-block">This is the CPC number from above.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="year-projection">Clicks Purchased</label>
-                        <div class="controls">
-                            <input type="text" id="clicks-purchased" name="clicks-purchased" class="disabled" disabled />
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="fill-rate">Conversion Rate</label>
-                        <div class="controls">
-                            <div class="input-append">
-                                <input type="range" min="0" max="100" step=".1" value="75" id="conversion-rate" name="conversion-rate" class="user-data" />
-                                <span id="conversion-rate-range-value" class="add-on">75%</span>
+                            <div class="control-group">
+                                <label class="control-label projection" for="monthly-earnings">12 Month Projected Revenue</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="projection" name="monthly-average" class="projection disabled" disabled />
+                                    </div>
+                                    <p class="help-block">Estimated earnings from advertising over 12 months.</p>
+                                </div>
                             </div>
-                        </div>    
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label projection" for="apps-activated">Apps Activated in 1 Year</label>
-                        <div class="controls">
-                            <input type="text" class="projection" id="apps-activated" name="apps-activated-projection" class="disabled projection" disabled />
-                            <p class="help-block">This is the number of new users created from just from advertising. Advertising is only one channel that will increase your user base; virality, public reaction and word of mouth will all contribute.</p>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Advertising Impact on Business</legend>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impressions-per-user">Ad Impressions Per User (monthly)</label>
-                        <div class="controls">
-                            <input type="text" id="ad-impressions-per-user" name="ad-impressions-per-user" class="user-data" />
-                        </div>    
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="impression-lift">Impression Lift From Ads</label>
-                        <div class="controls">
-                            <input type="text" id="impression-lift" name="impression-lift" class="user-data disabled" disabled />                            
-                            <p class="help-block">Total monthly increase in ad volume from the users acquired by ads.</p>
-                        </div>    
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impact-impressions">Ad Impresions</label>
-                        <div class="controls">
-                            <input type="text" id="ad-impact-impressions" name="ad-impact-impressions" class="user-data disabled" disabled />                            
-                        </div>    
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impact-fill-rate-range-value">Fill Rate</label>
-                        <div class="controls">
-                            <div class="input-append">
-                                <input type="text" id="ad-impact-fill-rate" name="ad-impact-fill-rate" class="user-data disabled" disabled />
-                                <span id="ad-impact-fill-rate-range-value" class="add-on">%</span>
+                        </fieldset>
+                        <fieldset>
+                            <legend>How Much to Spend on Ads?</legend>
+                            <div class="control-group">
+                                <label class="control-label projection" for="year-projection">12 Month Projected Revenue</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" class="projection" id="year-projection" name="monthly-average projection" class="disabled" disabled />
+                                    </div>
+                                    <p class="help-block">Starts with the 12 Month Projected Earnings number from above.</p>
+                                </div>
                             </div>
-                            <p class="help-block">Same metric as in Monthly Ad Revenue section above.</p>
-                        </div>    
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impact-ads-displayed">Ads Displayed</label>
-                        <div class="controls">
-                            <input type="text" id="ad-impact-ads-displayed" name="ad-impact-ads-displayed" class="user-data disabled" disabled />                            
-                        </div>    
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label" for="ctr">CTR (Click through rate)</label>
-                        <div class="controls">    
-                            <div class="input-append">
-                                <input type="text" id="ad-impact-ctr" name="ad-impact-ctr" class="user-data disabled" disabled />
-                                <span class="add-on">%</span>
+                            <div class="control-group">
+                                <label class="control-label" for="fill-rate">Portion Spent</label>
+                                <div class="controls">
+                                    <div class="input-append">
+                                        <input type="range" min="0" max="100" step=".1" value="50" id="portion-spent" name="portion-spent" class="user-data" />
+                                        <span id="portion-spent-range-value" class="add-on">50%</span>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="help-block">Same metric as in Monthly Ad Revenue section above.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="ad-impact-total-clicks">Total Clicks</label>
-                        <div class="controls">
-                            <input type="text" id="ad-impact-total-clicks" name="ad-impact-total-clicks" class="user-data disabled" disabled />                            
-                        </div>    
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label" for="ad-impact-cpc">CPC (Cost per click)</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" min="0" step=".01" value="0.10" id="ad-impact-cpc" name="ad-impact-cpc" class="user-data disabled" disabled />
+                            <div class="control-group">
+                                <label class="control-label" for="dollars-spent">Dollars Spent</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="dollars-spent" name="dollars-spent" class="input-small" disabled />
+                                        <p class="help-block"></p>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="help-block">Same metric as in Monthly Ad Revenue section above.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label projection" for="ad-impact-add-earnings">Additional Earnings Monthly (1st Mo)</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" id="ad-impact-add-earnings" name="ad-impact-add-earnings" class="user-data projection disabled" disabled />
+                            <div class="control-group">    
+                                <label class="control-label" for="cpc">CPC (Cost per click)</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" min="0" step=".01" value="0.10" id="ads-cpc" name="ads-cpc" class="user-data cpc disabled" disabled />
+                                    </div>
+                                    <p class="help-block">This is the CPC number from above.</p>
+                                </div>
                             </div>
-                            <p class="help-block">Estimated amount of revenue generated from new user on a monthly basis.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label projection" for="ad-impact-ecpm">eCPM</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" class="projection" id="ad-impact-ecpm" name="ad-impact-ecpm" disabled />
+                            <div class="control-group">
+                                <label class="control-label" for="year-projection">Clicks Purchased</label>
+                                <div class="controls">
+                                    <input type="text" id="clicks-purchased" name="clicks-purchased" class="disabled" disabled />
+                                </div>
                             </div>
-                            <p class="help-block">Average revenue earned for every 1,000 ads displayed.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label projection" for="ad-impact-compound-earnings">Next Month With Compounding</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" id="ad-impact-compound-earnings" name="ad-impact-compound-earnings" class="user-data projection disabled" disabled />
+                            <div class="control-group">
+                                <label class="control-label" for="fill-rate">Conversion Rate</label>
+                                <div class="controls">
+                                    <div class="input-append">
+                                        <input type="range" min="0" max="100" step=".1" value="20" id="conversion-rate" name="conversion-rate" class="user-data" />
+                                        <span id="conversion-rate-range-value" class="add-on">20%</span>
+                                    </div>
+                                </div>    
                             </div>
-                            <p class="help-block">Additional increase from larger installed app base.</p>
-                        </div>
-                    </div>
-                    <div class="control-group">    
-                        <label class="control-label projection" for="ad-impact-year-rev">Monthly Revenue from Advertising (After 12mo)</label>
-                        <div class="controls">    
-                            <div class="input-prepend">
-                                <span class="add-on">$</span>
-                                <input type="text" id="ad-impact-year-rev" name="ad-impact-year-rev" class="user-data projection disabled" disabled />
+                            <div class="control-group">
+                                <label class="control-label projection" for="apps-activated">Apps Activated in 1 Year</label>
+                                <div class="controls">
+                                    <input type="text" class="projection" id="apps-activated" name="apps-activated-projection" class="disabled projection" disabled />
+                                    <p class="help-block">This is the number of new users created from just from advertising. Advertising is only one channel that will increase your user base; virality, public reaction and word of mouth will all contribute.</p>
+                                </div>
                             </div>
-                            <p class="help-block">You can earn this additional amount per month after 12 months of investing in advertising for your App. The impact on earnings can be significant.</p>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Total New Monthly Revenue (After 12mo)</legend>
-                </fieldset>
-            </form>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Advertising Impact on Business</legend>
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impressions-per-user">Ad Impressions Per User (monthly)</label>
+                                <div class="controls">
+                                    <input type="text" id="ad-impressions-per-user" name="ad-impressions-per-user" class="user-data" value="200"/>
+                                </div>    
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="impression-lift">Impression Lift From Ads</label>
+                                <div class="controls">
+                                    <input type="text" id="impression-lift" name="impression-lift" class="user-data disabled" disabled />                            
+                                    <p class="help-block">Total monthly increase in ad volume from the users acquired by ads.</p>
+                                </div>    
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impact-impressions">Ad Impresions</label>
+                                <div class="controls">
+                                    <input type="text" id="ad-impact-impressions" name="ad-impact-impressions" class="user-data disabled" disabled />                            
+                                </div>    
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impact-fill-rate-range-value">Fill Rate</label>
+                                <div class="controls">
+                                    <div class="input-append">
+                                        <input type="text" id="ad-impact-fill-rate" name="ad-impact-fill-rate" class="user-data disabled" disabled />
+                                        <span id="ad-impact-fill-rate-range-value" class="add-on">%</span>
+                                    </div>
+                                    <p class="help-block">Same metric as in Monthly Ad Revenue section above.</p>
+                                </div>    
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impact-ads-displayed">Ads Displayed</label>
+                                <div class="controls">
+                                    <input type="text" id="ad-impact-ads-displayed" name="ad-impact-ads-displayed" class="user-data disabled" disabled />                            
+                                </div>    
+                            </div>
+                            <div class="control-group">    
+                                <label class="control-label" for="ctr">CTR (Click through rate)</label>
+                                <div class="controls">    
+                                    <div class="input-append">
+                                        <input type="text" id="ad-impact-ctr" name="ad-impact-ctr" class="user-data disabled" disabled />
+                                        <span class="add-on">%</span>
+                                    </div>
+                                    <p class="help-block">Same metric as in Monthly Ad Revenue section above.</p>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="ad-impact-total-clicks">Total Clicks</label>
+                                <div class="controls">
+                                    <input type="text" id="ad-impact-total-clicks" name="ad-impact-total-clicks" class="user-data disabled" disabled />                            
+                                </div>    
+                            </div>
+                            <div class="control-group">    
+                                <label class="control-label" for="ad-impact-cpc">CPC (Cost per click)</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" min="0" step=".01" value="0.10" id="ad-impact-cpc" name="ad-impact-cpc" class="user-data cpc disabled" disabled />
+                                    </div>
+                                    <p class="help-block">Same metric as in Monthly Ad Revenue section above.</p>
+                                </div>
+                            </div>
+                            <div class="control-group">    
+                                <label class="control-label projection" for="ad-impact-add-earnings">Additional Earnings Monthly (1st Mo)</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="ad-impact-add-earnings" name="ad-impact-add-earnings" class="user-data projection disabled" disabled />
+                                    </div>
+                                    <p class="help-block">Estimated amount of revenue generated from new user on a monthly basis.</p>
+                                </div>
+                            </div>
+                            <div class="control-group">    
+                                <label class="control-label projection" for="ad-impact-ecpm">eCPM</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" class="projection" id="ad-impact-ecpm" name="ad-impact-ecpm" disabled />
+                                    </div>
+                                    <p class="help-block">Average revenue earned for every 1,000 ads displayed.</p>
+                                </div>
+                            </div>
+                            <div class="control-group">    
+                                <label class="control-label projection" for="ad-impact-compound-earnings">Next Month With Compounding</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="ad-impact-compound-earnings" name="ad-impact-compound-earnings" class="user-data projection disabled" disabled />
+                                    </div>
+                                    <p class="help-block">Additional increase from larger installed app base.</p>
+                                </div>
+                            </div>
+                            <div class="control-group">    
+                                <label class="control-label projection" for="ad-impact-year-rev">Monthly Revenue from Advertising (After 12mo)</label>
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="ad-impact-year-rev" name="ad-impact-year-rev" class="user-data projection disabled" disabled />
+                                    </div>
+                                    <p class="help-block">You can earn this additional amount per month after 12 months of investing in advertising for your App. The impact on earnings can be significant.</p>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Total New Monthly Revenue (After 12mo)</legend>
+                        </fieldset>
+                    </form>
+                </div>
+            </div> <!-- row-fluid -->
             <div class="footer">
-                <a href="http://www.inmobi.com"><img class="pull-right" src="img/inmobi.png" width="200px" /></a>
-                <p>Make $$$ with <a href="http://www.inmobi.com">InMobi</a></p>
+                <div class="footer-top-align">    
+                    <a href="http://www.inmobi.com"><img class="pull-right" src="img/inmobi_black.png" width="200px" /></a>
+                </div>
+                <div id="footer-logo" class="footer-top-align">
+                    <p>Make $$$ with <a href="http://www.inmobi.com">InMobi</a></p>
+                </div>
             </div>
-        </div>
+        </div> <!-- container-fluid -->
     </body>
 </html>

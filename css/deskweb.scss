@@ -1,9 +1,18 @@
-$greenColor:green;
+$greenColor:rgba(0, 168, 143, 1.0); //rgba(73, 169, 66, 1.0);
+$navGradTop: rgba(0, 101, 149, 1.0); //rgba(0, 169, 208, 1.0);
+$navGradBottom: rgba(0, 58, 99, 1.0); //rgba(0, 101, 149, 1.0);
+/* augmenting bootstrap */
 
-.input-prepend .no-bg {
-    background:none;
-    border:none;
+.navbar-inner {
+    background-image: -webkit-linear-gradient(top, $navGradTop, $navGradBottom);
 }
+
+.container-fluid {
+    margin-top:50px;
+}
+
+
+/* specific styles */
 
 label.projection {
     color:$greenColor;
@@ -19,3 +28,8 @@ input.projection {
     margin-top:45px;
     padding:35px 0 36px;
 }
+
+.footer-top-align {
+    vertical-align:top;
+}
+

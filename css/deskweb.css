@@ -1,15 +1,22 @@
-.input-prepend .no-bg {
-  background: none;
-  border: none; }
+/* augmenting bootstrap */
+.navbar-inner {
+  background-image: -webkit-linear-gradient(top, #006595, #003a63); }
 
+.container-fluid {
+  margin-top: 50px; }
+
+/* specific styles */
 label.projection {
-  color: green; }
+  color: #00a88f; }
 
 input.projection {
-  background-color: green;
+  background-color: #00a88f;
   color: white; }
 
 .footer {
   border-top: 1px solid #E5E5E5;
   margin-top: 45px;
   padding: 35px 0 36px; }
+
+.footer-top-align {
+  vertical-align: top; }

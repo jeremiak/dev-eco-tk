@@ -1,7 +1,17 @@
 function insertCommas(amount) {
-    var formatted = amount;
-
-    return formatted;
+    var formatted = amount //.toFixed(2);
+  /*
+  nStr += '';
+  x = nStr.split('.');
+  x1 = x[0];
+  x2 = x.length > 1 ? '.' + x[1] : '';
+  var rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+  }
+  return x1 + x2;
+   */
+   return formatted;
 }
 
 function calculateForm() {
@@ -66,12 +76,18 @@ function updateRange(source) {
 }
 
 $(document).ready(function() {
+        // run all functions once to make sure all data is correctly displayed on form
         calculateForm();
+        // any time user generated data (fields of the class 'user-data'), recalculate the form
         $('.user-data').bind('focusout',calculateForm);
+        // make sure each range updates its label with the value while it changes
         $('input[type="range"]').bind('change', function(event){
                 var source = event['srcElement']['id'];
                 updateRange(source);
                 calculateForm();
             }
         );
+        // to the brand link, bind a function that scrolls to the top of the page
+        $('.brand').bind('click', function() {
+            });
 });
