@@ -1,6 +1,6 @@
 /* augmenting bootstrap */
 .navbar-inner {
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1), black); }
+  background-image: -webkit-linear-gradient(top, black, black); }
 
 .container-fluid {
   margin-top: 50px; }
