@@ -1,7 +1,4 @@
 /* augmenting bootstrap */
-.navbar-inner {
-  background-image: -webkit-linear-gradient(top, black, black); }
-
 .container-fluid {
   margin-top: 50px; }
 
