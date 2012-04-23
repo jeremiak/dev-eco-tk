@@ -59,18 +59,47 @@ function calculateForm() {
     adSpend['dollars-spent'] = insertCommas($('#portion-spent').val() * yearRevProjection['projection']);
     adSpend['clicks-purchased'] = insertCommas(parseInt(adSpend['dollars-spent'] / revProjection['projection-cpc']));
     adSpend['apps-activated'] = insertCommas(parseInt(($('#conversion-rate').val() / 100) * adSpend['clicks-purchased']));
+    adSpend['cost-per-acq'] = insertCommas(adSpend['dollars-spent'] / adSpend['apps-activated']);
 
     $('#year-projection').val(yearRevProjection['projection']);
+    
     $('#dollars-spent').val(adSpend['dollars-spent']);
+    $('#sidebar-dollars-spent').val(adSpend['dollars-spent']); 
+
     $('#ads-cpc').val(revProjection['projection-cpc']);
     $('#clicks-purchased').val(adSpend['clicks-purchased']);
     
     $('#apps-activated').val(adSpend['apps-activated']);
     $('#sidebar-apps-activated').val(adSpend['apps-activated']);
 
+    $('#cost-per-acq').val(adSpend['cost-per-acq']);
+    $('#sidebar-cost-per-acq').val(adSpend['cost-per-acq']);
+
+    var adImpact = {}
+    adImpact['monthly-impressions-per-user'] = $('#ad-impressions-per-user').val();
+    adImpact['impression-lift'] = parseInt(adSpend['clicks-purchased'] * adImpact['monthly-impressions-per-user']);
+    adImpact['ads-displayed'] = adImpact['impression-lift'] * revProjection['fill-rate'];
+    adImpact['total-clicks'] = adImpact['ads-displayed'] * revProjection['ctr'];
+    adImpact['additional-earnings'] = adImpact['total-clicks'] * revProjection['projection-cpc'];
+    adImpact['compounded-earnings'] = (adImpact['additional-earnings'] * 0.24) + adImpact['additional-earnings'];
+    adImpact['ad-impact-year-rev'] = adImpact['additional-earnings'] * (1+0.24)^12;
+    adImpact['ecpm'] = adImpact['additional-earnings'] / (adImpact['ads-displayed']/1000);
+
     $('#ad-impact-fill-rate').val(revProjection['fill-rate'] * 100);
     $('#ad-impact-ctr').val(revProjection['ctr']);
     $('#ad-impact-cpc').val(revProjection['projection-cpc']);
+
+    $('#impression-lift').val(adImpact['impression-lift']);
+    $('#ad-impact-impressions').val(adImpact['ads-displayed']);
+    $('#ad-impact-ads-displayed').val(adImpact['ads-displayed']);
+    $('#ad-impact-total-clicks').val(adImpact['total-clicks']);
+    $('#ad-impact-ecpm').val(adImpact['ecpm']);
+    $('#ad-impact-add-earnings').val(adImpact['additional-earnings']);
+    $('#ad-impact-compound-earnings').val(adImpact['compounded-earnings']);
+    $('#ad-impact-year-rev').val(adImpact['ad-impact-year-rev']);
+    
+    var totalNewRev = adImpact['ad-impact-year-rev'] + yearRevProjection['month-average'];
+    $('#total-new-rev').val(totalNewRev);
 }
 
 function updateRange(source) {

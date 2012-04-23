@@ -63,12 +63,38 @@
                             </div>
                         </li>
                         <li>How Much to Spend on Ads
-                            <div class="control-group">
-                                <label class="control-label projection" for="apps-activated">Apps Activated in 1 Year</label>
-                                <div class="controls">
-                                    <input type="text" class="projection" id="sidebar-apps-activated" name="apps-activated-projection" class="span1 projection disabled" disabled />
-                                </div>
-                            </div>
+                            <ul>
+                                <li>
+                                    <div class="control-group">
+                                        <label class="control-label projection" for="sidebar-dollars-spent">Dollars Spent</label>
+                                        <div class="controls">
+                                            <div class="input-prepend">
+                                                <span class="add-on">$</span>
+                                                <input type="text" id="sidebar-dollars-spent" name="sidebar-dollars-spent" class="projection span1 disabled" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="control-group">
+                                        <label class="control-label projection" for="apps-activated">Apps Activated in 1 Year</label>
+                                        <div class="controls">
+                                            <input type="text" class="projection" id="sidebar-apps-activated" name="apps-activated-projection" class="projection span1 disabled" disabled />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="control-group">
+                                        <label class="control-label projection" for="sidebar-cost-per-acq">Cost Per Activation</label>
+                                        <div class="controls">
+                                            <div class="input-prepend">
+                                                <span class="add-on">$</span>
+                                                <input type="text" id="sidebar-cost-per-acq" name="sidebar-cost-per-acq" class="projection span1 disabled" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li> 
+                            </ul>
                         </li>
                         <li>Advertising Impact on Business</li>
                         <li>Total New Monthly Revenue (after 12 Months)</li>
@@ -287,6 +313,16 @@
                                     <p class="help-block">This is the number of new users created from just from advertising. Advertising is only one channel that will increase your user base; virality, public reaction and word of mouth will all contribute.</p>
                                 </div>
                             </div>
+                            <div class="control-group">
+                                <label class="control-label projection" for="cost-per-acq">Cost Per Activation</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" class="projection" id="cost-per-acq" name="cost-per-acq" class="disabled" disabled />
+                                    </div>
+                                    <p class="help-block">Starts with the 12 Month Projected Earnings number from above.</p>
+                                </div>
+                            </div>
                         </fieldset>
                         <fieldset>
                             <legend>Advertising Impact on Business</legend>
@@ -394,17 +430,20 @@
                         </fieldset>
                         <fieldset>
                             <legend>Total New Monthly Revenue (After 12mo)</legend>
+                            <div class="control-group">    
+                                <div class="controls">    
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="total-new-rev" name="total-new-rev" class="user-data projection disabled" disabled />
+                                    </div>
+                                    <p class="help-block">This amount includes the amount obtained in the Monthly Ad Revenue projection section plus the amount in the Advertising Impact on Business section.</p>
+                                </div>
+                            </div>
                         </fieldset>
                     </form>
                 </div>
             </div> <!-- row-fluid -->
-            <div class="footer">
-                <div class="footer-top-align">    
-                    <a href="http://www.inmobi.com"><img class="pull-right" src="img/inmobi_black.png" width="200px" /></a>
-                </div>
-                <div id="footer-logo" class="footer-top-align">
-                    <p>Make $$$ with <a href="http://www.inmobi.com">InMobi</a></p>
-                </div>
+            <div class="footer">                
             </div>
         </div> <!-- container-fluid -->
     </body>
