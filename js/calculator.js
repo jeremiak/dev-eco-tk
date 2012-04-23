@@ -51,7 +51,9 @@ function calculateForm() {
     $('#lowest-month').val(yearRevProjection['lowest-month']);
     $('#highest-month').val(yearRevProjection['highest-month']);
     $('#monthly-average').val(yearRevProjection['month-average']);
+    
     $('#projection').val(yearRevProjection['projection']);
+    $('#sidebar-projection').val(yearRevProjection['projection']);
 
     var adSpend = {};
     adSpend['dollars-spent'] = insertCommas($('#portion-spent').val() * yearRevProjection['projection']);
