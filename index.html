@@ -27,25 +27,54 @@
                     <ol>
                         <li>Monthly Ad Revenue Projection
                             <ul>
-                                <li>Projection</li>
-                                <li>eCPM</li>
+                                <li>
+                                    <div class="control-group">
+                                        <label class="control-label projection" for="sidebar-monthly-earnings">Monthly Projected Revenue</label>
+                                        <div class="controls">
+                                            <div class="input-prepend">
+                                                <span class="add-on">$</span>
+                                                <input type="text" id="sidebar-monthly-earnings" name="monthly-average" class="projection span1 disabled" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                     <div class="control-group">    
+                                        <label class="control-label projection" for="sidebar-ecpm">eCPM</label>
+                                        <div class="controls">    
+                                            <div class="input-prepend">
+                                                <span class="add-on">$</span>
+                                                <input type="text" class="projection span1" id="sidebar-ecpm" name="ecpm" disabled />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
                         <li>12 Month Ad Revenue Projection
-                            <ul>
-                                <li>Projection</li>
-                            </ul>
+                            <div class="control-group">
+                                <label class="control-label projection" for="monthly-earnings">12 Month Projected Revenue</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="sidebar-projection" name="monthly-average" class="projection span1 disabled" disabled />
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         <li>How Much to Spend on Ads
-                            <ul>
-                                <li>Apps Activated in a Year</li>
-                            </ul>
+                            <div class="control-group">
+                                <label class="control-label projection" for="apps-activated">Apps Activated in 1 Year</label>
+                                <div class="controls">
+                                    <input type="text" class="projection" id="sidebar-apps-activated" name="apps-activated-projection" class="span1 projection disabled" disabled />
+                                </div>
+                            </div>
                         </li>
                         <li>Advertising Impact on Business</li>
                         <li>Total New Monthly Revenue (after 12 Months)</li>
                     </ol>
                 </div>
-                <div class="span9">
+                <div id="main-content" class="span9">
                     <form class="form-horizontal" id="toolkit" name="toolkit">
                         <fieldset>
                             <legend>Monthly Ad Revenue Projection</legend>

@@ -34,7 +34,10 @@ function calculateForm() {
     $('#ads-displayed').val(revProjection['ads-displayed']);
     $('#total-clicks').val(revProjection['total-clicks']);
     $('#month-projected-rev').val(revProjection['month-projected-rev'].toFixed(2));
-    $('#ecpm').val(revProjection['ecpm'].toFixed(2));
+    
+    var ecpmValue = revProjection['ecpm'].toFixed(2);
+    $('#ecpm').val(ecpmValue);
+    $('#sidebar-ecpm').val(ecpmValue);
 
     var yearRevProjection = {};
     yearRevProjection['lowest-month'] = insertCommas(parseFloat(revProjection['month-projected-rev'] * .5));
@@ -43,6 +46,8 @@ function calculateForm() {
     yearRevProjection['projection'] = insertCommas(parseFloat(yearRevProjection['month-average'] * 12));
 
     $('#monthly-earnings').val(revProjection['month-projected-rev']);
+    $('#sidebar-monthly-earnings').val(revProjection['month-projected-rev']);
+
     $('#lowest-month').val(yearRevProjection['lowest-month']);
     $('#highest-month').val(yearRevProjection['highest-month']);
     $('#monthly-average').val(yearRevProjection['month-average']);
@@ -57,7 +62,9 @@ function calculateForm() {
     $('#dollars-spent').val(adSpend['dollars-spent']);
     $('#ads-cpc').val(revProjection['projection-cpc']);
     $('#clicks-purchased').val(adSpend['clicks-purchased']);
+    
     $('#apps-activated').val(adSpend['apps-activated']);
+    $('#sidebar-apps-activated').val(adSpend['apps-activated']);
 
     $('#ad-impact-fill-rate').val(revProjection['fill-rate'] * 100);
     $('#ad-impact-ctr').val(revProjection['ctr']);
