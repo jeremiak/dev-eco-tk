@@ -148,7 +148,8 @@ $(document).ready(function() {
                 calculateForm();
             }
         );
-
+		
+		// keep the data points left box in the view at all times
         $(document).bind('scroll', function() {
 			popOutDataPoints();
 		});
