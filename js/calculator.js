@@ -1,3 +1,6 @@
+var Calculator = {};
+Calculator.debug = true;
+
 function insertCommas(amount) {
     var formatted = amount //.toFixed(2);
   /*
@@ -16,9 +19,9 @@ function insertCommas(amount) {
 
 function calculateForm() {
     function populateECPM(ecpm) {
-		return false;
+		$('#ecpm').val(ecpm);
+	    $('#sidebar-ecpm').val(ecpm);
 	}
-
 	var revProjection = {};
     
     revProjection['month-uniques'] = parseInt($('#month-uniques').val());
@@ -32,16 +35,15 @@ function calculateForm() {
     revProjection['ads-displayed'] = insertCommas(parseInt(revProjection['ad-impressions'] * revProjection['fill-rate']));
     revProjection['total-clicks'] = insertCommas(parseInt(revProjection['ads-displayed'] * revProjection['ctr']));
     revProjection['month-projected-rev'] = insertCommas(parseFloat((revProjection['total-clicks'] * revProjection['projection-cpc']) * 1.00));
-    revProjection['ecpm'] = revProjection['month-projected-rev'] / (revProjection['ads-displayed'] * 0.001);
+    revProjection['ecpm'] = revProjection['month-projected-rev'] / (revProjection['ads-displayed'] / 1000);
+	
+	Calculator.debug == true ? console.log(revProjection) : false;
 
     $('#ad-impressions').val(revProjection['ad-impressions']);
     $('#ads-displayed').val(revProjection['ads-displayed']);
     $('#total-clicks').val(revProjection['total-clicks']);
     $('#month-projected-rev').val(revProjection['month-projected-rev'].toFixed(2));
     
-    var ecpmValue = revProjection['ecpm'].toFixed(2);
-    $('#ecpm').val(ecpmValue);
-    $('#sidebar-ecpm').val(ecpmValue);
 
     var yearRevProjection = {};
     yearRevProjection['lowest-month'] = insertCommas(parseFloat(revProjection['month-projected-rev'] * .5));
@@ -61,7 +63,7 @@ function calculateForm() {
 
     var adSpend = {};
     adSpend['dollars-spent'] = insertCommas($('#portion-spent').val() * yearRevProjection['projection']);
-    adSpend['clicks-purchased'] = insertCommas(parseInt(adSpend['dollars-spent'] / revProjection['projection-cpc']));
+    adSpend['clicks-purchased'] = insertCommas(parseInt(adSpend['dollars-spent'] * revProjection['projection-cpc']));
     adSpend['apps-activated'] = insertCommas(parseInt(($('#conversion-rate').val() / 100) * adSpend['clicks-purchased']));
     adSpend['cost-per-acq'] = insertCommas(adSpend['dollars-spent'] / adSpend['apps-activated']);
 
@@ -92,7 +94,6 @@ function calculateForm() {
     $('#ad-impact-fill-rate').val(revProjection['fill-rate'] * 100);
     $('#ad-impact-ctr').val(revProjection['ctr']);
     $('#ad-impact-cpc').val(revProjection['projection-cpc']);
-
     $('#impression-lift').val(adImpact['impression-lift']);
     $('#ad-impact-impressions').val(adImpact['ads-displayed']);
     $('#ad-impact-ads-displayed').val(adImpact['ads-displayed']);
@@ -105,6 +106,8 @@ function calculateForm() {
     var totalNewRev = adImpact['ad-impact-year-rev'] + yearRevProjection['month-average'];
     $('#total-new-rev').val(totalNewRev);
 	$('#sidebar-total-new-rev').val(totalNewRev);
+	
+	populateECPM(revProjection['ecpm'].toFixed(2));
 }
 
 function updateRange(source) {
