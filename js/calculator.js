@@ -15,7 +15,11 @@ function insertCommas(amount) {
 }
 
 function calculateForm() {
-    var revProjection = {};
+    function populateECPM(ecpm) {
+		return false;
+	}
+
+	var revProjection = {};
     
     revProjection['month-uniques'] = parseInt($('#month-uniques').val());
     revProjection['avg-session-length'] = parseInt($('#avg-session-length').val());
@@ -100,6 +104,7 @@ function calculateForm() {
     
     var totalNewRev = adImpact['ad-impact-year-rev'] + yearRevProjection['month-average'];
     $('#total-new-rev').val(totalNewRev);
+	$('#sidebar-total-new-rev').val(totalNewRev);
 }
 
 function updateRange(source) {
@@ -111,6 +116,24 @@ function updateRange(source) {
     
     var rangeValue = parseFloat($(source).val()).toFixed(1) + '%';
     $(sourceMap[source]).text(rangeValue);
+}
+
+function popOutDataPoints() {
+	var currentTop = $(document).scrollTop();
+	var ch = containerHeader = $('.container-header');
+	var dp = dataPoints = $('#data-points');
+	var mc = mainContent = $('#main-content');
+	
+	if (currentTop > 93) {
+		dp.css('position', 'fixed');
+		dp.css('top', '10px');
+		mc.css('margin-left', '320px');
+	}
+	else {
+		dp.css('position', 'relative');
+		mc.css('float', 'left');
+		mc.css('margin-left', '0');
+	}
 }
 
 $(document).ready(function() {
@@ -125,9 +148,9 @@ $(document).ready(function() {
                 calculateForm();
             }
         );
-        // to the brand link, bind a function that scrolls to the top of the page
-        $('.brand').bind('click', function() {
-            $('html, body').animate({scrollTop:0}, 'fast');
-            return false; // required to prevent default scroll
-            });
+
+        $(document).bind('scroll', function() {
+			popOutDataPoints();
+		});
+            
 });

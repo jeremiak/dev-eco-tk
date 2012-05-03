@@ -1,19 +1,96 @@
-/* augmenting bootstrap */
-.container-fluid {
-  margin-top: 50px; }
+body {
+  background-color: #1e1b1c; }
 
-/* specific styles */
+legend {
+  color: #00a5db; }
+
+div.container-full {
+  width: 960px;
+  margin: 0 auto; }
+
+div.container-header {
+  background-color: #1e1b1c;
+  width: 100%; }
+
+div.container-header img {
+  margin: 0; }
+
+div.container-header img:first-child {
+  margin-left: 10px;
+  width: 650px; }
+
+div.container-header img:last-child {
+  margin-left: 45px;
+  width: 250px; }
+
+div.container-body {
+  background-color: #f3f2f4;
+  padding: 10px;
+  overflow: auto;
+  width: 940px; }
+
+div.container-body > div {
+  float: left; }
+
+div#data-points {
+  background-color: #0093cb;
+  margin: 0;
+  margin-top: 0px;
+  padding-top: 0px;
+  width: 320px; }
+
+div#data-points div.sidebar-space {
+  /*	margin-top:30px;	*/ }
+
+div#data-points div#twitter {
+  background-color: #f3f2f4;
+  width: 270px;
+  margin: 0 auto;
+  padding-left: 50px;
+  padding-top: 30px; }
+
+ol#data-points-list {
+  color: white;
+  list-style-type: none;
+  font-size: 4em; }
+
+ol#data-points-list > li {
+  color: #b7f1f9; }
+
+ol#data-points-list label {
+  color: #b7f1f9; }
+
+ol#data-points-list span.add-on {
+  color: black;
+  font-size: 12px; }
+
+/* pull $ and text fields together */
+ol#data-points-list input[type='text'] {
+  margin-left: -14px;
+  margin-top: 2px;
+  vertical-align: top;
+  width: 50px; }
+
+ol#data-points-list > li > ul {
+  list-style: none;
+  margin-left: 0; }
+
+ol#data-points-list .control-group {
+  margin-bottom: -9px; }
+
+ol#data-points-list #sidebar-apps-activated {
+  margin-left: 0; }
+
+div#main-content {
+  background-color: #f3f2f4;
+  margin: 0;
+  margin-top: 0px;
+  padding-left: 10px;
+  width: 610px; }
+
 label.projection {
-  color: #00a88f; }
+  color: #3fa852; }
 
 input.projection {
-  background-color: #00a88f;
+  background-color: #3fa852;
   color: white; }
-
-.footer {
-  border-top: 1px solid #E5E5E5;
-  margin-top: 45px;
-  padding: 35px 0 36px; }
-
-.footer-top-align {
-  vertical-align: top; }

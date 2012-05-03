@@ -9,23 +9,19 @@
         <script type="text/javascript" src="js/calculator.js"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
     </head>
     <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="#">Economic Toolkit for Developers</a>
-                    <div class="pull-right">
-                        <a href="http://www.inmobi.com"><img src="img/inmobi_white.png" width="120px" /></a>
-                    </div>
-                </div>
+        <div class="container-full">
+            <div class="container-header">
+                <img src="img/toolkitheader.png">
+                <img src="img/inmobi_white.png">
             </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span3">
-                    <ol>
-                        <li>Monthly Ad Revenue Projection
+            <div class="container-body">    
+                <div id="data-points">
+                    <ol id="data-points-list">
+                        <li>
+							<div class="sidebar-space"><br></div>
                             <ul>
                                 <li>
                                     <div class="control-group">
@@ -33,7 +29,7 @@
                                         <div class="controls">
                                             <div class="input-prepend">
                                                 <span class="add-on">$</span>
-                                                <input type="text" id="sidebar-monthly-earnings" name="monthly-average" class="projection span1 disabled" disabled />
+                                                <input type="text" id="sidebar-monthly-earnings" name="monthly-average" class="span1 disabled" disabled />
                                             </div>
                                         </div>
                                     </div>
@@ -44,25 +40,25 @@
                                         <div class="controls">    
                                             <div class="input-prepend">
                                                 <span class="add-on">$</span>
-                                                <input type="text" class="projection span1" id="sidebar-ecpm" name="ecpm" disabled />
+                                                <input type="text" class="span1" id="sidebar-ecpm" name="ecpm" disabled />
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </li>
-                        <li>12 Month Ad Revenue Projection
+                        <li><div class="sidebar-space"><br></div>
                             <div class="control-group">
                                 <label class="control-label projection" for="monthly-earnings">12 Month Projected Revenue</label>
                                 <div class="controls">
                                     <div class="input-prepend">
                                         <span class="add-on">$</span>
-                                        <input type="text" id="sidebar-projection" name="monthly-average" class="projection span1 disabled" disabled />
+                                        <input type="text" id="sidebar-projection" name="monthly-average" class="span1 disabled" disabled />
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li>How Much to Spend on Ads
+                        <li><div class="sidebar-space"><br></div>
                             <ul>
                                 <li>
                                     <div class="control-group">
@@ -70,7 +66,7 @@
                                         <div class="controls">
                                             <div class="input-prepend">
                                                 <span class="add-on">$</span>
-                                                <input type="text" id="sidebar-dollars-spent" name="sidebar-dollars-spent" class="projection span1 disabled" disabled />
+                                                <input type="text" id="sidebar-dollars-spent" name="sidebar-dollars-spent" class="span1 disabled" disabled />
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +75,7 @@
                                     <div class="control-group">
                                         <label class="control-label projection" for="apps-activated">Apps Activated in 1 Year</label>
                                         <div class="controls">
-                                            <input type="text" class="projection" id="sidebar-apps-activated" name="apps-activated-projection" class="projection span1 disabled" disabled />
+                                            <input type="text" id="sidebar-apps-activated" name="apps-activated-projection" class="span1 disabled" disabled />
                                         </div>
                                     </div>
                                 </li>
@@ -89,18 +85,33 @@
                                         <div class="controls">
                                             <div class="input-prepend">
                                                 <span class="add-on">$</span>
-                                                <input type="text" id="sidebar-cost-per-acq" name="sidebar-cost-per-acq" class="projection span1 disabled" disabled />
+                                                <input type="text" id="sidebar-cost-per-acq" name="sidebar-cost-per-acq" class="span1 disabled" disabled />
                                             </div>
                                         </div>
                                     </div>
                                 </li> 
                             </ul>
                         </li>
-                        <li>Advertising Impact on Business</li>
-                        <li>Total New Monthly Revenue (after 12 Months)</li>
+                        <li><div class="sidebar-space"><br></div>
+                            <div class="control-group">
+                                <label class="control-label projection" for="sidebar-total-new-rev">Total New Monthly Rev</label>
+                                <div class="controls">
+                                    <div class="input-prepend">
+                                        <span class="add-on">$</span>
+                                        <input type="text" id="sidebar-total-new-rev" name="sidebar-total-new-rev" class="span1 disabled" disabled />
+                                    </div>
+                                </div>
+                            </div></li>
                     </ol>
-                </div>
-                <div id="main-content" class="span9">
+                	<div id="twitter">
+						<a href="https://twitter.com/inmobideveloper" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @inmobideveloper</a>
+						<script>
+							!function(d,s,id){var js,fjs = 		d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+						</script>
+					</div>
+
+				</div>
+                <div id="main-content">
                     <form class="form-horizontal" id="toolkit" name="toolkit">
                         <fieldset>
                             <legend>Monthly Ad Revenue Projection</legend>
@@ -442,9 +453,7 @@
                         </fieldset>
                     </form>
                 </div>
-            </div> <!-- row-fluid -->
-            <div class="footer">                
             </div>
-        </div> <!-- container-fluid -->
+        </div>
     </body>
 </html>

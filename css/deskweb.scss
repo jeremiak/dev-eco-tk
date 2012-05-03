@@ -1,18 +1,125 @@
-$greenColor:rgba(0, 168, 143, 1.0); //rgba(73, 169, 66, 1.0);
-$navGradTop: black; //rgba(0, 101, 149, 1.0); //rgba(0, 169, 208, 1.0);
-$navGradBottom: black;//rgba(0, 58, 99, 1.0); //rgba(0, 101, 149, 1.0);
-/* augmenting bootstrap */
+$containerWidth: 960px;
+$dataWidth: $containerWidth/3;
+$mainWidth: $containerWidth - $dataWidth - 30px;
 
-.navbar-inner {
-    //background-image: -webkit-linear-gradient(top, $navGradTop, $navGradBottom);
+$greenColor:rgb(63,168,82);
+$bgColor:rgba(30, 27, 28, 1.0);
+
+body {
+    background-color:$bgColor;
 }
 
-.container-fluid {
-    margin-top:50px;
+legend {
+	color: rgb(0, 165, 219);
 }
 
+div.container-full {
+	width:960px;
+	margin:0 auto;
+}
+div.container-header {
+    background-color:$bgColor;
+    width:100%;
+}
 
-/* specific styles */
+div.container-header img {
+    margin:0;
+}
+
+div.container-header img:first-child {
+    margin-left:10px;
+    width:650px;
+}
+
+div.container-header img:last-child {
+    margin-left:45px;
+    width:250px;
+}
+
+$greyColor:rgba(243, 242, 244, 1.0);
+
+div.container-body {
+    background-color: $greyColor;
+	padding:10px;
+	overflow:auto;
+    width:940px;
+}
+
+div.container-body>div {
+	float:left; 
+}
+
+$container-body-top:0px;
+
+div#data-points {
+    background-color: rgba(0, 147, 203, 1.0);
+    margin:0;
+	margin-top:$container-body-top;
+    padding-top:0px;
+	width:$dataWidth;
+}
+div#data-points div.sidebar-space {
+/*	margin-top:30px;	*/
+}
+
+$twitWidth: $dataWidth - 50px;
+
+div#data-points div#twitter {
+	background-color:$greyColor;
+	width:$twitWidth;
+	margin: 0 auto;
+	padding-left:50px;
+	padding-top:30px;
+}
+
+ol#data-points-list {
+	color:white;
+	list-style-type:none;
+	font-size:4em;
+}
+
+$sidebarTextColor:rgb(183, 241, 249);
+
+ol#data-points-list>li {
+	color: $sidebarTextColor;
+}
+
+ol#data-points-list label {
+	color: $sidebarTextColor;
+}
+
+ol#data-points-list span.add-on {
+	color:black;
+	font-size:12px;
+}
+
+/* pull $ and text fields together */
+ol#data-points-list input[type='text'] {
+	margin-left:-14px;
+	margin-top:2px;
+	vertical-align:top;
+	width:50px;
+}
+
+ol#data-points-list>li>ul {
+    list-style:none;
+    margin-left:0;
+}
+ol#data-points-list .control-group {
+	margin-bottom:-9px;
+}
+
+ol#data-points-list #sidebar-apps-activated {
+	margin-left:0;
+}
+
+div#main-content {
+background-color: rgba(243, 242, 244, 1.0);
+	margin:0;
+    margin-top:$container-body-top;
+	padding-left:10px;
+	width:$mainWidth;
+}
 
 label.projection {
     color:$greenColor;
@@ -21,15 +128,5 @@ label.projection {
 input.projection {
     background-color:$greenColor;
     color:white;
-}
-
-.footer {
-    border-top:1px solid #E5E5E5;
-    margin-top:45px;
-    padding:35px 0 36px;
-}
-
-.footer-top-align {
-    vertical-align:top;
 }
 
