@@ -58,8 +58,16 @@ div#data-points {
     padding-top:0px;
 	width:$dataWidth;
 }
-div#data-points div.sidebar-space {
-/*	margin-top:30px;	*/
+
+div#data-points div.input-prepend {
+	width:90px;
+}
+div#data-points div.input-prepend span {
+	float:left;
+}
+div#data-points div.input-prepend input {
+	float:right;
+	display:block;
 }
 
 $twitWidth: $dataWidth - 50px;
@@ -68,6 +76,7 @@ div#data-points div#twitter {
 	background-color:$greyColor;
 	width:$twitWidth;
 	margin: 0 auto;
+	margin-top:80px;
 	padding-left:50px;
 	padding-top:30px;
 }
@@ -93,20 +102,9 @@ ol#data-points-list span.add-on {
 	font-size:12px;
 }
 
-/* pull $ and text fields together */
-ol#data-points-list input[type='text'] {
-	margin-left:-14px;
-	margin-top:2px;
-	vertical-align:top;
-	width:50px;
-}
-
 ol#data-points-list>li>ul {
     list-style:none;
     margin-left:0;
-}
-ol#data-points-list .control-group {
-	margin-bottom:-9px;
 }
 
 ol#data-points-list #sidebar-apps-activated {

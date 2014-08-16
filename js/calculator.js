@@ -2,7 +2,8 @@ var Calculator = {};
 Calculator.debug = true;
 
 function insertCommas(amount) {
-    var formatted = amount //.toFixed(2);
+    var formatted = amount;
+    
   /*
   nStr += '';
   x = nStr.split('.');
@@ -42,7 +43,7 @@ function calculateForm() {
     $('#ad-impressions').val(revProjection['ad-impressions']);
     $('#ads-displayed').val(revProjection['ads-displayed']);
     $('#total-clicks').val(revProjection['total-clicks']);
-    $('#month-projected-rev').val(revProjection['month-projected-rev'].toFixed(2));
+    $('#month-projected-rev').val(revProjection['month-projected-rev']);
     
 
     var yearRevProjection = {};
@@ -62,7 +63,7 @@ function calculateForm() {
     $('#sidebar-projection').val(yearRevProjection['projection']);
 
     var adSpend = {};
-    adSpend['dollars-spent'] = insertCommas($('#portion-spent').val() * yearRevProjection['projection']);
+    adSpend['dollars-spent'] = insertCommas(($('#portion-spent').val() * yearRevProjection['projection'])/100);
     adSpend['clicks-purchased'] = insertCommas(parseInt(adSpend['dollars-spent'] * revProjection['projection-cpc']));
     adSpend['apps-activated'] = insertCommas(parseInt(($('#conversion-rate').val() / 100) * adSpend['clicks-purchased']));
     adSpend['cost-per-acq'] = insertCommas(adSpend['dollars-spent'] / adSpend['apps-activated']);
